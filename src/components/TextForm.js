@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 export default function TextForm(props) {
-    const [text, setText] = useState('')
+    const [text, setText] = useState(' ')
     const [BtnText, setBtnText] = useState('Cute mode')
     const UppercaseClick = () => {
         console.log("uppercase was clicked" + text)
@@ -35,7 +35,7 @@ export default function TextForm(props) {
         backgroundColor: 'white'
     })
     const togglemode = () => {
-        if (mystyle.color == 'black') {
+        if (mystyle.color === 'black') {
             // mystyle.color='red';
             setmystyle({
                 color: 'red',
@@ -52,6 +52,22 @@ export default function TextForm(props) {
 
         }
     }
+    const copyText=()=>{
+        {
+            // Get the text field
+            var copyText = document.getElementById("myInput");
+          
+            // Select the text field
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+          
+             // Copy the text inside the text field
+            navigator.clipboard.writeText(copyText.value);
+          
+            // Alert the copied text
+            alert("Copied the text: " + copyText.value);
+          }
+    }
 
 return (
     <>
@@ -61,11 +77,12 @@ return (
             </div>
             <div className="mb-3">
                 <label htmlFor="mybox" className="form-label"></label>
-                <textarea className="form-control" id="exampleFormControlTextarea1" rows="8" value={text} onChange={HandleChange} ></textarea>
+                <textarea className="form-control" id="myInput" rows="8" value={text} onChange={HandleChange} ></textarea>
             </div>
             <button className='btn btn-primary mx-2' onClick={UppercaseClick}>Convert to Uppercase</button>
             <button className='btn btn-primary mx-2' onClick={UppercaseWordClick}>Convert to Uppercase Word</button>
             <button className='btn btn-primary mx-2' onClick={LowercaseClick}>Convert to Lowercase</button>
+            <button className="btn btn-primary" onClick={copyText}>Copt Text</button>
             <button className='btn btn-primary mx-2' onClick={ClearClick}>Reset</button>
         </div>
         <div className="container" style={mystyle}>
