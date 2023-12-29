@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Bout from './components/Bout';
+// import Bout from './components/Bout';
 // import { Link } from 'react-router-dom'
 export default function Navbar(props) {
   // const [navStyle, setNavStyle] = useState({
@@ -19,7 +19,7 @@ export default function Navbar(props) {
               <a className="nav-link active" aria-current="page" href="#" style={{color:props.mode==='dark'?'white':'black'}}>Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/bout"style={{color:props.mode==='dark'?'white':'black'}}>{props.aboutText}</a>
+              <a className="nav-link" href="#"style={{color:props.mode==='dark'?'white':'black'}}>{props.aboutText}</a>
             </li>
           </ul>
           <form className="d-flex" role="search">
