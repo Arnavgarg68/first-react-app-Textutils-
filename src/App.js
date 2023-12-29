@@ -29,7 +29,7 @@ function App() {
     <>
         <Router>
           
-            <Navbar title="Arnav Garg" mode={mode} togglemode={togglemode} />
+            <Navbar title="TextUtils" mode={mode} togglemode={togglemode} aboutText="About" />
             <div className="container my-5">
           <Routes>
             <Route exact path='/' element={<TextForm heading="Enter text here" mode={mode} />}/>
