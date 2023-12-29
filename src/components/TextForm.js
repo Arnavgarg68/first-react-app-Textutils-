@@ -11,7 +11,7 @@ export default function TextForm(props) {
         setText(newText)
     }
     const HandleChange = (event) => {
-        console.log("i am on change")
+        // console.log("i am on change")
         setText(event.target.value)
     }
     const LowercaseClick = () => {
@@ -69,6 +69,15 @@ export default function TextForm(props) {
             alert("Copied the text: " + copyText.value);
           
     }
+    const pasteText=async()=>{
+        let paste = await navigator.clipboard.readText();
+        document.getElementById("myInput").value += paste;
+        setText(paste);
+    }
+    const SelectClick=()=>{
+        let val = document.getElementById("myInput")
+        val.select();
+    }
 
 return (
     <>
@@ -83,8 +92,10 @@ return (
             <button className='btn btn-primary mx-2' onClick={UppercaseClick}>Convert to Uppercase</button>
             <button className='btn btn-primary mx-2' onClick={UppercaseWordClick}>Convert to Uppercase Word</button>
             <button className='btn btn-primary mx-2' onClick={LowercaseClick}>Convert to Lowercase</button>
-            <button className="btn btn-primary" onClick={copyText}>Copt Text</button>
+            <button className="btn btn-primary mx-2" onClick={copyText}>Copy Text</button>
+            <button className="btn btn-primary mx-2" onClick={pasteText}>Paste Text</button>
             <button className='btn btn-primary mx-2' onClick={ClearClick}>Reset</button>
+            <button className='btn btn-primary mx-2' onClick={SelectClick}>Select All</button>
         </div>
         <div className="container" style={{color:props.mode==="dark"?"white":"black"}}>
             <h1>Text Summary</h1>
