@@ -1,33 +1,43 @@
 // import logo from './logo.svg';
 import './App.css';
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 import Navbar from './components/Navbar';
+import Bout from './components/Bout';
 import TextForm from './components/TextForm';
-// let name="Arnav Garg";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  
+} from "react-router-dom";
 function App() {
-  const [mode,setMode]=useState('light')
-  const togglemode=()=>{
-    if(mode==='light'){
+  const [mode, setMode] = useState('light')
+  const togglemode = () => {
+    if (mode === 'light') {
       setMode('dark');
-      document.body.style.backgroundColor="#4d246b";
+      document.body.style.backgroundColor = "#4d246b";
     }
-    else{
+    else {
       setMode('light');
-      document.body.style.backgroundColor="white"
+      document.body.style.backgroundColor = "white"
 
     }
   }
   return (
 
     <>
-    <div className="shareer"style={{backgroundColor:mode==="dark"?"#4d246b":"white"}}>
-      <Navbar title="Arnav Garg" mode={mode} togglemode={togglemode}/>
-      <div className="container">
-        <TextForm heading="Enter your analysed text" mode={mode}/>
-      </div>
-      </div>
-    </>
+        <Router>
+          
+            <Navbar title="Arnav Garg" mode={mode} togglemode={togglemode} />
+            <div className="container my-5">
+          <Routes>
+            <Route exact path='/' element={<TextForm heading="Enter text here" mode={mode} />}/>
+            <Route path='/Bout' Component={Bout}/>
+          </Routes>
+          </div>
+        </Router>
+        </>
   );
 }
 
