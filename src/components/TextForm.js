@@ -77,8 +77,8 @@ return (
                 <h1>{props.heading}</h1>
             </div>
             <div className="mb-3">
-                <label htmlFor="mybox" className="form-label"style={{backgroundColor:props.mode==="dark"?"#4a4848":"white",color:props.mode==="dark"?"white":"black"}}></label>
-                <textarea className="form-control" id="myInput" rows="8" value={text} onChange={HandleChange} style={{backgroundColor:props.mode==="dark"?"#4a4848":"white",color:props.mode==="dark"?"white":"black",borderColor:props.mode==="dark"?"grey":"black"}}></textarea>
+                <label htmlFor="mybox" className="form-label"style={{backgroundColor:props.mode==="dark"?"#4d246b":"white",color:props.mode==="dark"?"white":"black"}}></label>
+                <textarea className="form-control" id="myInput" rows="8" value={text} onChange={HandleChange} style={{backgroundColor:props.mode==="dark"?"#4d246b":"white",color:props.mode==="dark"?"white":"black",borderColor:props.mode==="dark"?"grey":"black"}}></textarea>
             </div>
             <button className='btn btn-primary mx-2' onClick={UppercaseClick}>Convert to Uppercase</button>
             <button className='btn btn-primary mx-2' onClick={UppercaseWordClick}>Convert to Uppercase Word</button>

@@ -10,16 +10,18 @@ function App() {
   const togglemode=()=>{
     if(mode==='light'){
       setMode('dark');
-      
+      document.body.style.backgroundColor="#4d246b";
     }
     else{
       setMode('light');
+      document.body.style.backgroundColor="white"
+
     }
   }
   return (
 
     <>
-    <div className="shareer"style={{backgroundColor:mode==="dark"?"#00542e":"white"}}>
+    <div className="shareer"style={{backgroundColor:mode==="dark"?"#4d246b":"white"}}>
       <Navbar title="Arnav Garg" mode={mode} togglemode={togglemode}/>
       <div className="container">
         <TextForm heading="Enter your analysed text" mode={mode}/>
